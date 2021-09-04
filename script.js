@@ -1,12 +1,13 @@
-// Assignment Code
+
 var generateBtn = document.querySelector("#generate");
 var passwordLength = '';
 var validChars = '';
+var password = '';
 const lowercase = 'abcdefghijklmnopqrstuvwxyz';
 const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const numbers = '0123456789';
 const special = '!#$%&\()*+,-./:;<=>?@^[\\]^_`{|}~';
-// Write password to the #password input
+
 function writePassword() { 
   
   function getPasswordLength() {
@@ -15,13 +16,17 @@ function writePassword() {
       getPasswordLength();
     }
   } 
+  
+  getPasswordLength();
 
   function validateLowercase() {
     var confirmLowercase = window.confirm("would you like to use lowercase characters?");
     if (confirmLowercase === true) {
       validChars += lowercase
     }
-  }
+  } 
+  
+  validateLowercase(); 
 
   function validateUppercase() {
     var confirmUppercase = window.confirm("would you like to use uppercase characters?");
@@ -30,12 +35,16 @@ function writePassword() {
     }
   }
 
+  validateUppercase();
+
   function validateNumbers() {
     var confirmNumbers = window.confirm("would you like to use numbers");
     if (confirmNumbers === true) {
       validChars += numbers
     }
   }
+
+  validateNumbers();
 
   function validateSpecialChars() {
     var confirmSpecialChars = window.confirm("would you like to use specials characters?");
@@ -44,9 +53,7 @@ function writePassword() {
     }
   } 
 
-  if (validChars === null) window.alert("you must select atleast one character set"); {
-    getPasswordLength();
-  }
+  validateSpecialChars();
 
   function generatePassword() {
     var possible = validChars;
@@ -56,12 +63,12 @@ function writePassword() {
     return password;
   }
 
-  var password = generatePassword();
+  generatePassword();
+
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
 
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

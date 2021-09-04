@@ -10,6 +10,8 @@ const special = '!#$%&\()*+,-./:;<=>?@^[\\]^_`{|}~';
 
 function writePassword() { 
   
+  password =""; //this will allow us to do multiple generations per page load. 
+
   function getPasswordLength() {
     passwordLength = Number(window.prompt("Please select password length. (Must be inbetween 8 - 124 characters long)"));
     if (passwordLength < 8 || passwordLength > 124 || passwordLength === null) {

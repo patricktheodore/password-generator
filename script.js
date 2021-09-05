@@ -10,7 +10,8 @@ const special = '!#$%&\()*+,-./:;<=>?@^[\\]^_`{|}~';
 
 function writePassword() { 
   
-  password =""; //this will allow us to do multiple generations per page load. 
+  validChars =''; //resets validations per button click
+  password =''; //this will allow us to do multiple generations per page load. 
 
   function getPasswordLength() {
     passwordLength = Number(window.prompt("Please select password length. (Must be inbetween 8 - 124 characters long)"));
@@ -56,6 +57,11 @@ function writePassword() {
   } 
 
   validateSpecialChars();
+
+  if (validChars.length <1) { //fixes issue where user can not select any characters
+    window.alert('please select atleast one character set')
+    writePassword();
+  } else
 
   function generatePassword() {
     var possible = validChars;

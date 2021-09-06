@@ -18,7 +18,7 @@ function writePassword() {
     if (passwordLength < 8 || passwordLength > 124 || passwordLength === null) {
       getPasswordLength();
     }
-  } 
+  }
   
   getPasswordLength();
 
